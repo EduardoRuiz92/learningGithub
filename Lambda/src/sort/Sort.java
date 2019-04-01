@@ -26,7 +26,11 @@ public class Sort
 	{
 //		test1();
 //		test2();
-		test3();
+//		test3();
+//		test4();
+//		test5();
+//		test6();
+		test7();
 	}
 
 	/**
@@ -96,6 +100,52 @@ public class Sort
 	{
 		List<Empleado> empleados = GenerateEmployee.crearEmpleados();
 		Comparator<Empleado> comparator = new NombreEmpleadoComparator();
+		Collections.sort(empleados, comparator);
+		imprimir(empleados);
+	}
+	
+	/**
+	 * Se utiliza una clase anónima para ordenar a los empleados de acuerdo a su edad.
+	 * La clase anónima cumple una relación "is a" con la interfaz Comparator. Se ordena por edad.
+	 */
+	private static void test6()
+	{
+		List<Empleado> empleados = GenerateEmployee.crearEmpleados();
+		
+		Comparator<Empleado> comparator = new Comparator<Empleado>()
+		{
+			@Override
+			public int compare(Empleado e1, Empleado e2)
+			{
+				if(e1.getEdad() < e2.getEdad())
+					return -1;
+				else if(e1.getEdad() > e2.getEdad())
+					return 1;
+				else
+					return 0;
+			}
+		};
+		
+//		Comparator<Empleado> c2 = comparator.reversed();
+		Collections.sort(empleados, comparator);
+		imprimir(empleados);
+	}
+	
+	/**
+	 * Nuevamente se ocupa una clase anónima para ordenar, en esta ocasión, por edad
+	 * y usando el método compareTo() de la clase Integer a la que pertenece la edad de los empleados.
+	 */
+	private static void test7()
+	{
+		List<Empleado> empleados = GenerateEmployee.crearEmpleados();
+		Comparator<Empleado> comparator = new Comparator<Empleado>()
+		{
+			@Override
+			public int compare(Empleado e1, Empleado e2)
+			{
+				return e1.getEdad().compareTo(e2.getEdad());
+			}
+		};
 		Collections.sort(empleados, comparator);
 		imprimir(empleados);
 	}
