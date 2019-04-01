@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import beans.Empleado;
+
 /**
  * Clase que se utilizará durante el apartado de lambdas del curso de Java.
  */
@@ -39,6 +41,36 @@ public class Sort
 		Collections.sort(numeros);
 		
 		imprimir(numeros);
+	}
+	
+	/**
+	 * Ordenando cadenas.
+	 */
+	private static void test2()
+	{
+		List<String> nombres = new ArrayList<String>();
+		nombres.add("Karen");
+		nombres.add("Victor");
+		nombres.add("Héctor");
+		nombres.add("José");
+		nombres.add("Jose");
+		nombres.add("Marquito");
+		nombres.add("Oscar");
+		nombres.add("dany bebe");
+		
+		Collections.sort(nombres);
+		
+		imprimir(nombres);
+	}
+	
+	/**
+	 * Ordenando empleados a través de su orden natural, por medio de la interfaz Comparable. Se ordena por salario.
+	 */
+	private static void test3()
+	{
+		List<Empleado> empleados = GenerateEmployee.crearEmpleados();
+		Collections.sort(empleados);
+		imprimir(empleados);
 	}
 	
 	/**
