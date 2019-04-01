@@ -3,9 +3,12 @@ package sort;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import beans.Empleado;
+import comparators.EdadEmpleadoComparator;
+import comparators.NombreEmpleadoComparator;
 
 /**
  * Clase que se utilizará durante el apartado de lambdas del curso de Java.
@@ -21,7 +24,9 @@ public class Sort
 	 */
 	public static void main(String[] args)
 	{
-		test1();
+//		test1();
+//		test2();
+		test3();
 	}
 
 	/**
@@ -70,6 +75,28 @@ public class Sort
 	{
 		List<Empleado> empleados = GenerateEmployee.crearEmpleados();
 		Collections.sort(empleados);
+		imprimir(empleados);
+	}
+	
+	/**
+	 * Ordenando empleados a través de una clase que implementa a la interfaz Comparator. Se ordena por edad.
+	 */
+	private static void test4()
+	{
+		List<Empleado> empleados = GenerateEmployee.crearEmpleados();
+		Comparator<Empleado> comparator = new EdadEmpleadoComparator();
+		Collections.sort(empleados, comparator);
+		imprimir(empleados);
+	}
+	
+	/**
+	 * Ordenando empleados con una clase que implementa a Comparator, en este caso, se utilizan sus nombres. 
+	 */
+	private static void test5()
+	{
+		List<Empleado> empleados = GenerateEmployee.crearEmpleados();
+		Comparator<Empleado> comparator = new NombreEmpleadoComparator();
+		Collections.sort(empleados, comparator);
 		imprimir(empleados);
 	}
 	
