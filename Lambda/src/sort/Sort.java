@@ -24,7 +24,9 @@ public class Sort
 	 */
 	public static void main(String[] args)
 	{
-		test1();
+//		test1();
+//		test2();
+		test3();
 	}
 
 	/**
