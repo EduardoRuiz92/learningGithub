@@ -151,6 +151,31 @@ public class Sort
 	}
 	
 	/**
+	 * Primera lamda, que cumple una relación "is a" con Comparator,
+	 * básicamente es lo mismo que se hace en el método anterior.
+	 */
+	private static void test8()
+	{
+		List<Empleado> empleados = GenerateEmployee.crearEmpleados();
+		
+		Comparator<Empleado> comparator = (e1, e2) -> e1.getEdad().compareTo(e2.getEdad());
+		
+		Collections.sort(empleados, comparator);
+		imprimir(empleados);
+	}
+	
+	/**
+	 * Segunda lambda, ordena de acuerdo al nombre de los empleados.
+	 */
+	private static void test9()
+	{
+		List<Empleado> empleados = GenerateEmployee.crearEmpleados();
+		Comparator<Empleado> comparator = (e1, e2) -> e1.getNombre().compareTo(e2.getNombre());
+		Collections.sort(empleados, comparator);
+		imprimir(empleados);		
+	}
+	
+	/**
 	 * Método que imprime una lista de obetos, a través de su método "toString".
 	 * 
 	 * @param objetos Lista de los objetos a imprimir.
